@@ -1,23 +1,19 @@
-<!-- Jumbotron -->
-<div class="jumbotron">
-  <h1>Jon's Thoughts On...</h1>
-</div>
+<%= render :partial => "header" %>
 
-<hr>
-
-<% @posts.each do |post| %>
-  <div class="row-fluid">
-    <div class="span3"></div>
-    <div class="span6">
-        <h2><%= post.title %></h2>
+<div class="row-fluid">
+  <div class="span3 sidebar"><%= render :partial => "sidebar" %></div>
+  <div class="span9">
+    <div class="row-fluid">
+      <% @posts.each do |post| %>
+        <h2 style="margin-top: 0px;"><%= post.title %></h2>
         <p><%= post.preview %></p>
         <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn" %></p>
-        <hr>
+        <% if post != @posts.last %>
+          <hr><br/>
+        <% end %>
+      <% end %>
     </div>
-    <div class="span3"></div>
   </div>
-<% end %>
+</div>
 
 <br/>
-
-<%= link_to "New Post", new_post_path, :class => "btn btn-primary" %>

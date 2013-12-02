@@ -22,64 +22,97 @@
                   <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
                                  <link rel="shortcut icon" href="../assets/ico/favicon.png">
 
-<style type="text/css">
-  /* Customize the navbar links to be fill the entire space of the .navbar */
-  .navbar .navbar-inner {
-    padding: 0;
-  }
-  .navbar .nav {
-    margin: 0;
-    display: table;
-    width: 100%;
-  }
-  .navbar .nav li {
-    display: table-cell;
-    width: 1%;
-    float: none;
-  }
-  .navbar .nav li a {
-    font-weight: bold;
-    text-align: center;
-    border-left: 1px solid rgba(255,255,255,.75);
-    border-right: 1px solid rgba(0,0,0,.1);
-  }
-  .navbar .nav li:first-child a {
-    border-left: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  .navbar .nav li:last-child a {
-    border-right: 0;
-    border-radius: 0 3px 3px 0;
-  }
-</style>
 </head>
 <body>
-  <div class="container">
 
-    <div class="masthead">
-      <h3 class="muted">Jon Wendt There</h3>
-      <div class="navbar">
-        <div class="navbar-inner">
-          <div class="container">
-            <ul class="nav">
-              <%= nav_link("Home", "home") %>
-              <%= nav_link("Blog", "posts") %>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Downloads</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
+  <style type="text/css">
+    /* Customize the navbar links to be fill the entire space of the .navbar */
+    .navbar .navbar-inner {
+      padding: 0;
+    }
+    .navbar .nav {
+      margin: 0;
+      display: table;
+      width: 100%;
+    }
+    .navbar .nav li {
+      display: table-cell;
+      width: 1%;
+      float: none;
+    }
+    .navbar .nav li a {
+      font-weight: bold;
+      text-align: center;
+      border-left: 1px solid rgba(255,255,255,.75);
+      border-right: 1px solid rgba(0,0,0,.1);
+    }
+    .navbar .nav li:first-child a {
+      border-left: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .navbar .nav li:last-child a {
+      border-right: 0;
+      border-radius: 0 3px 3px 0;
+    }
+
+    @media (max-width: 980px) {
+      /* Enable use of floated navbar text */
+      .navbar-text.pull-right {
+        float: none;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+  </style>  
+  <!-- <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="#">Project name</a>
+        <div class="nav-collapse collapse">
+          <p class="navbar-text pull-right">
+            Logged in as <a href="#" class="navbar-link">Username</a>
+          </p>
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </div>
-      </div><!-- /.navbar -->
+      </div>
     </div>
-    
-    <%= yield %>
+  </div> -->
 
-    <hr>
 
-    <div class="footer">
-      <p>&copy; Jon Wendt <%= Date.today.year %></p>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="masthead">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <%= nav_link("Home", root_url) %>
+                <%= nav_link("Blog", posts_url) %>
+                <%= nav_link("Games", games_url) %>
+                <%= nav_link("Music", music_index_url) %>
+                <%= nav_link("Contact", contact_index_url) %>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+      </div>
+      
+      <%= yield %>
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Jon Wendt <%= Date.today.year %></p>
+      </div>
     </div>
   </div> <!-- /container -->
 </body>

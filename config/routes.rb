@@ -4,6 +4,10 @@ Blog::Application.routes.draw do
 
   resources :home
   resources :posts
+  resources :games
+  resources :music
+  resources :contact
+  
   #resources :blog, :controller => :posts
 
   # Sample of regular route:
