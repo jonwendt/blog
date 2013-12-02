@@ -1,0 +1,28 @@
+<!--
+<div class="jumbotron">
+  <h1>Marketing stuff!</h1>
+  <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+  <a class="btn btn-large btn-success" href="#">Get started today</a>
+</div>
+
+<hr>
+-->
+
+<!-- Example row of columns -->
+<h1>Blog</h1>
+<% @posts.each_with_index do |post, index| %>
+<% if index%3 == 0 %>
+<div class="row-fluid">
+<% end %>
+
+  <div class="span4">
+    <h2><%= post.title %></h2>
+    <p><%= post.preview %></p>
+    <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn" %></p>
+  </div>
+
+<% if index%3 == 2 or index == @posts.size - 1 %>
+</div>
+<% end %>
+
+<% end %>
