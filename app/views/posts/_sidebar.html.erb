@@ -15,7 +15,9 @@
       <%= sidebar_link(post) %>
     <% end %>
     
-    <br/>
-    <%= link_to "New Post", new_post_path, :class => "btn btn-primary" %>
+    <% if @is_admin %>
+      <br/>
+      <%= link_to "New Post", new_post_path, :class => "btn btn-primary" %>
+    <% end %>
   </ul>
-</div><!--/.well -->
+</div>

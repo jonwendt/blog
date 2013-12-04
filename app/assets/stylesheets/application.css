@@ -87,3 +87,29 @@ body {
   border-right: 0;
   border-radius: 0 3px 3px 0;
 }
+
+
+/* My stuff */
+.first-post { /* Change name */
+  margin-top: 0px;
+}
+.image-container {
+  text-align: center;
+  padding: 15px;
+  background-color: #2b2b2b;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  color: #aaa;
+  margin: 0 auto;
+
+  display: table-cell;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.image-container img {
+  max-height: 400px;
+}
+.image-container img:hover {
+  cursor: pointer;
+}

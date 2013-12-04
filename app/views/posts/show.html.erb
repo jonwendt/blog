@@ -3,8 +3,26 @@
 <div class="row-fluid">
   <div class="span3 sidebar"><%= render :partial => "sidebar" %></div>
   <div class="span9">
-    <h2><%= @post.title %></h2>
+    <h3 class="first-post"><%= @post.title %></h3>
     <p><%= @post.content.html_safe %></p>
     <p><%= @post.tags %></p>
   </div>
 </div>
+
+<%= link_to "Edit Post", edit_post_path(@post), :class => "btn btn-primary" if @is_admin %>
+
+<script>
+  $('img').click(function() {
+    if ($(this).css('max-height') == 'none') {
+      $(this).css('max-height', '400px');
+    } else {
+      $(this).css('max-height', 'none');
+    }
+  });
+
+  $(document).ready(function() {
+    $('.image-container').each(function(index, value) {
+      $(this).width($(this).children('img').width());
+    });
+  });
+</script>

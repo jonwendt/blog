@@ -1,0 +1,16 @@
+<%= render :partial => "header" %>
+
+<%= form_for @post do |f| %>
+  <div class="row-fluid">
+    <div class="span3"></div>
+    <div class="span6">
+        <h2>Title <%= f.text_field :title %></h2>
+        <p>Preview <%= f.text_field :preview %></p>
+        <p>Content <%= f.text_area :content %></p>
+        <p>Tags <%= f.text_field :tags %></p>
+        <hr>
+    </div>
+    <div class="span3"></div>
+  </div>
+  <%= f.submit %>
+<% end %>

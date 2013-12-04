@@ -1,0 +1,13 @@
+Administration system
+
+Pagination on index page of posts
+
+Better way to display and track images. Have a place to upload them and caption them, then reference from a post. Referencing will draw a reasonably sized thumbnail, which will expand on click. Then have images page with a collection of the images. Try to have some juicy js there.
+Example workflow: Move all images to be used in post into assets/images/import. Go to a page reserved for admin user and click import (can either import from folder or from imgur album). This create new image records for each with the file name associated. Each will have a text box to enter a caption, with a save button at the bottom that will save them all. Reference image using [PICTURE(id)]. In after_save of a post, replace [PICTURE(id)] with html showing the scaled picture and caption, and adding a listener so when the picture is clicked you get the full resolution.
+class="image". Then in posts#show have jQuery
+
+New topbar
+
+Responsiveness
+
+Searching (tags)
