@@ -18,3 +18,5 @@
 /config/initializers/secret_token.rb
 
 .DS_Store
+
+/app/assets/images/posts/*
