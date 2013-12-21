@@ -20,3 +20,5 @@
 .DS_Store
 
 /app/assets/images/posts/*
+
+/config/initializers/devise.rb
