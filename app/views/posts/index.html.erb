@@ -2,12 +2,14 @@
 
 <div class="row-fluid">
   <div class="span3 sidebar"><%= render :partial => "sidebar" %></div>
+
   <div class="span9">
     <div class="row-fluid">
       <% @posts.each do |post| %>
-        <h3 class="first-post"><%= post.title %></h3>
+        <h3 style="margin-top: 0px;"><%= post.title %></h3>
         <p><%= post.preview %></p>
         <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn" %></p>
+        
         <% if post != @posts.last %>
           <hr><br/>
         <% end %>

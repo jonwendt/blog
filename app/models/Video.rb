@@ -1,4 +1,4 @@
-class Picture < ActiveRecord::Base
+class Video < ActiveRecord::Base
   attr_accessible :path, :caption
 
   def build_html

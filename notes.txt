@@ -11,3 +11,7 @@ New topbar
 Responsiveness
 
 Searching (tags)
+
+Separate blog posts from update posts in games for calls in posts_controller
+
+Fix problem with image-container setting width to child .img's width before the image is loaded, making it wider than necessary

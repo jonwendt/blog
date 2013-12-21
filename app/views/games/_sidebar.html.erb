@@ -1,0 +1,22 @@
+<style type="text/css">
+  .sidebar-nav {
+    padding: 9px 0;
+  }
+</style>
+
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <% if @game.videos %>
+      <li><%= link_to "Videos", videos_game_path(@game.id) %></li>
+    <% end %>
+    <li class="nav-header">Updates</li>
+    <%# memories_posts(@posts).each do |post| %>
+      <%#= sidebar_link(post) %>
+    <%# end %>
+    
+    <% if @is_admin %>
+      <br/>
+      <%= link_to "New Post", new_post_path, :class => "btn btn-primary" %>
+    <% end %>
+  </ul>
+</div>

@@ -6,7 +6,11 @@ Blog::Application.routes.draw do
 
   resources :home
   resources :posts
-  resources :games
+  resources :games do
+    member do
+      get 'videos'
+    end
+  end
   resources :music
   resources :contact
   

@@ -13,6 +13,7 @@ module Blog
   class Application < Rails::Application
     config.to_prepare do
       Devise::SessionsController.skip_before_filter :enforce_privileges
+      Devise::RegistrationsController.skip_before_filter :enforce_privileges
     end
 
     # Settings in config/environments/* take precedence over those specified here.

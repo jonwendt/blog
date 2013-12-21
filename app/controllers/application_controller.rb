@@ -4,12 +4,15 @@ class ApplicationController < ActionController::Base
   before_filter :enforce_privileges, :except => [:index, :show]
 
   def is_admin_user?
-    @is_admin = (current_user == User.find_by_email("jpwendt@asu.edu"))
+    if user_signed_in? == false
+      @is_admin = false
+    else
+      @is_admin = (current_user.email == "jpwendt@asu.edu")
+    end
   end
 
   def enforce_privileges
     if @is_admin == false
-      puts params.inspect
       redirect_to url_for(:controller => params[:controller])
     end
   end

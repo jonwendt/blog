@@ -7,7 +7,14 @@
 <div class="row-fluid">
   <div class="span3 sidebar"><%= render :partial => "sidebar" %></div>
   <div class="span9">
-    <h3 style="margin-top: 0px;"><%= @game.title %></h3>
+    <% @game.videos.each do |video| %>
+      <h3 style="margin-top: 0px;"><%= video.title %></h3>
+      <p><%= link_to video.caption, video.path, :class => "btn" %></p>
+      
+      <% if video != @game.videos.last %>
+        <hr><br/>
+      <% end %>
+    <% end %>
   </div>
 </div>
 

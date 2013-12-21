@@ -1,2 +1,15 @@
-<h1>Games#index</h1>
-<p>Find me in app/views/games/index.html.erb</p>
+<%= render :partial => "header" %>
+    <div class="row-fluid">
+      <% @games.each do |game| %>
+      <div class="image-container">
+        <h3 style="margin-top: 0px;"><%= link_to game.title, game_path(game.id) %></h3>
+        <p><%= link_to ("<img src=\"" + game.preview + "\">").html_safe, game_path(game.id) %></p>
+        
+        <% if game != @games.last %>
+          <hr><br/>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+<br/>

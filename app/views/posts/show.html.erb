@@ -3,7 +3,7 @@
 <div class="row-fluid">
   <div class="span3 sidebar"><%= render :partial => "sidebar" %></div>
   <div class="span9">
-    <h3 class="first-post"><%= @post.title %></h3>
+    <h3 style="margin-top: 0px;"><%= @post.title %></h3>
     <p><%= @post.content.html_safe %></p>
     <p><%= @post.tags %></p>
   </div>
@@ -15,9 +15,12 @@
   $('img').click(function() {
     if ($(this).css('max-height') == 'none') {
       $(this).css('max-height', '400px');
+      $(this).parents('.image-container').width($(this).width());
     } else {
       $(this).css('max-height', 'none');
+      $(this).parents('.image-container').width('');
     }
+
   });
 
   $(document).ready(function() {
