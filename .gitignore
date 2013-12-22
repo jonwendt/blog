@@ -21,4 +21,5 @@
 
 /app/assets/images/posts/*
 
-/config/initializers/devise.rb
+notes.txt
+.elasticbeanstalk/
