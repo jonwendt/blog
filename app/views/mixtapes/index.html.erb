@@ -1,0 +1,19 @@
+
+<%= render :partial => "header" %>
+    <% @mixtapes.each_with_index do |mixtape, index| %>
+      <% if index%2 == 0 %>
+        <div class="row-fluid">
+      <% end %>
+
+      <div class="span6" style="margin-bottom: 25px;">
+        <h3 style="margin-top: 0px;"><%= link_to title_with_explicit_label(mixtape), mixtape_path(mixtape.id) %></h3>
+        <p><%= mixtape.preview.html_safe %></p>
+        <p><%= link_to "Read more &raquo;".html_safe, mixtape_path(mixtape.id), :class => "btn" %></p>
+        
+      </div>
+
+      <% if index%2 == 1 or index == @mixtapes.size - 1 %>
+        </div>
+      <% end %>
+    <% end %>
+<br/>

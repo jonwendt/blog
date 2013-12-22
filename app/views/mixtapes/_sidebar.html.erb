@@ -1,0 +1,19 @@
+<style type="text/css">
+  .sidebar-nav {
+    padding: 9px 0;
+  }
+</style>
+
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li class="nav-header">Mixtapes</li>
+    <% @mixtapes.each_with_index do |mixtape| %>
+      <%= sidebar_link(mixtape) %>
+    <% end %>
+    
+    <% if @is_admin %>
+      <br/>
+      <%= link_to "New Mixtape", new_mixtape_path, :class => "btn btn-primary" %>
+    <% end %>
+  </ul>
+</div>

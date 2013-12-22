@@ -1,0 +1,36 @@
+<%#= render :partial => "header" %>
+<div class="jumbotron">
+  <h2><%= title_with_explicit_label(@mixtape) %></h2>
+</div>
+
+<hr>
+
+<!-- <div class="row-fluid"> -->
+  <!-- <div class="span3 sidebar"><%#= render :partial => "sidebar" %></div> -->
+  <!-- <div class="span9"> -->
+    <!-- <h3 style="margin-top: 0px;"><%= @mixtape.title %></h3> -->
+    <p><%= @mixtape.content.html_safe %></p>
+    <p><%= @mixtape.tags %></p>
+  <!-- </div> -->
+<!-- </div> -->
+
+<%= link_to "Edit Mixtape", edit_mixtape_path(@mixtape), :class => "btn btn-primary" if @is_admin %>
+
+<script>
+  $('img').click(function() {
+    if ($(this).css('max-height') == 'none') {
+      $(this).css('max-height', '400px');
+      $(this).parents('.image-container').width($(this).width());
+    } else {
+      $(this).css('max-height', 'none');
+      $(this).parents('.image-container').width('');
+    }
+
+  });
+
+  $(document).ready(function() {
+    $('.image-container').each(function(index, value) {
+      $(this).width($(this).children('img').width());
+    });
+  });
+</script>

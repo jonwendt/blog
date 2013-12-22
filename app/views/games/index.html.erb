@@ -1,15 +1,17 @@
 <%= render :partial => "header" %>
-    <div class="row-fluid">
-      <% @games.each do |game| %>
-      <div class="image-container">
+    <% @games.each_with_index do |game, index| %>
+      <% if index%3 == 0 %>
+        <div class="row-fluid">
+      <% end %>
+
+      <div class="image-container span4" style="margin-bottom: 10px;">
         <h3 style="margin-top: 0px;"><%= link_to game.title, game_path(game.id) %></h3>
         <p><%= link_to ("<img src=\"" + game.preview + "\">").html_safe, game_path(game.id) %></p>
         
-        <% if game != @games.last %>
-          <hr><br/>
-        <% end %>
       </div>
-      <% end %>
-    </div>
 
+      <% if index%3 == 2 or index == @games.size - 1 %>
+        </div>
+      <% end %>
+    <% end %>
 <br/>

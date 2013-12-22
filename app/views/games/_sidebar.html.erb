@@ -6,13 +6,13 @@
 
 <div class="well sidebar-nav">
   <ul class="nav nav-list">
-    <% if @game.videos %>
+    <% if !@game.videos.empty? %>
       <li><%= link_to "Videos", videos_game_path(@game.id) %></li>
     <% end %>
     <li class="nav-header">Updates</li>
-    <%# memories_posts(@posts).each do |post| %>
-      <%#= sidebar_link(post) %>
-    <%# end %>
+    <% @game.updates.each do |update| %>
+      <%= sidebar_link(update) %>
+    <% end %>
     
     <% if @is_admin %>
       <br/>

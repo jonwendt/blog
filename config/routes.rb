@@ -11,7 +11,7 @@ Blog::Application.routes.draw do
       get 'videos'
     end
   end
-  resources :music
+  resources :mixtapes
   resources :contact
   
   #resources :blog, :controller => :posts

@@ -1,13 +1,23 @@
 <div class="jumbotron">
-  <h2><%= @game.title %></h2>
+  <h2><%= link_to @game.title, @game.download_link %></h2>
 </div>
 
 <hr>
 
-<div class="row-fluid">
+<div class="row">
   <div class="span3 sidebar"><%= render :partial => "sidebar" %></div>
   <div class="span9">
-    <h3 style="margin-top: 0px;"><%= @game.title %></h3>
+    <div class="row-fluid">
+      <% @game.updates.each do |update| %>
+        <h3 style="margin-top: 0px;"><%= update.title %></h3>
+        <p><%= update.preview %></p>
+        <p><%= link_to "Read more &raquo;".html_safe, update_path(update.id), :class => "btn" %></p>
+        
+        <% if update != @game.updates.last %>
+          <hr><br/>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 

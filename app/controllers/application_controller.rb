@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :is_admin_user?
-  before_filter :enforce_privileges, :except => [:index, :show]
+  before_filter :enforce_privileges, :only => [:new, :create, :edit, :update, :destroy]
 
   def is_admin_user?
     if user_signed_in? == false

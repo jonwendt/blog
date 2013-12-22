@@ -1,9 +1,9 @@
 class CreateVideos < ActiveRecord::Migration
   def change
     create_table :videos do |t|
+      t.integer :game_id
       t.string :path
       t.text :caption
-      t.integer :game_id
       t.timestamps
     end
   end
