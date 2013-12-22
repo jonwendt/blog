@@ -68,11 +68,11 @@
                 <%= nav_link("Games", games_url) %>
                 <%= nav_link("Mixtapes", mixtapes_url) %>
                 <%= nav_link("Contact", contact_index_url) %>
-                <% if user_signed_in? %>
-                  <%= nav_link("Sign Out", destroy_user_session_path) %>
-                <% else %>
-                  <%= nav_link("Sign In", new_user_session_path) %>
-                <% end %>
+                <%# if user_signed_in? %>
+                  <%#= nav_link("Sign Out", destroy_user_session_path) %>
+                <%# else %>
+                  <%#= nav_link("Sign In", new_user_session_path) %>
+                <%# end %>
               </ul>
             </div>
           </div>

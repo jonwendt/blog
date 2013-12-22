@@ -63,6 +63,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.2)
+    mysql2 (0.3.14)
     orm_adapter (0.5.0)
     polyglot (0.3.3)
     protected_attributes (1.0.3)
@@ -133,6 +134,7 @@ DEPENDENCIES
   devise
   jquery-rails
   less-rails
+  mysql2
   protected_attributes
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)

@@ -6,7 +6,7 @@
 
       <div class="image-container span4" style="margin-bottom: 10px;">
         <h3 style="margin-top: 0px;"><%= link_to game.title, game_path(game.id) %></h3>
-        <p><%= link_to ("<img src=\"" + game.preview + "\">").html_safe, game_path(game.id) %></p>
+        <%= link_to image_tag(game.preview), game_path(game.id) %>
         
       </div>
 

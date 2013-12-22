@@ -7,7 +7,7 @@
 
       <div class="span6" style="margin-bottom: 25px;">
         <h3 style="margin-top: 0px;"><%= link_to title_with_explicit_label(mixtape), mixtape_path(mixtape.id) %></h3>
-        <p><%= mixtape.preview.html_safe %></p>
+        <p><%= mixtape.player_html.html_safe %></p>
         <p><%= link_to "Read more &raquo;".html_safe, mixtape_path(mixtape.id), :class => "btn" %></p>
         
       </div>

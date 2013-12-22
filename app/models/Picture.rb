@@ -3,7 +3,7 @@ class Picture < ActiveRecord::Base
 
   def build_html
     caption_html = ActionController::Base.helpers.content_tag :p, "\n#{self.caption}"
-    ActionController::Base.helpers.content_tag :div, ActionController::Base.helpers.content_tag(:img, caption_html, :src => self.path),
+    ActionController::Base.helpers.content_tag :div, ActionController::Base.helpers.content_tag(:img, caption_html, :src => self.path, :class => "expandable"),
                                                      { :class => "image-container" }
   end
 end
