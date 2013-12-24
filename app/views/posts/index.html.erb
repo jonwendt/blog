@@ -7,7 +7,7 @@
     <div class="row-fluid">
       <% @posts.each do |post| %>
         <h3 style="margin-top: 0px;"><%= post.title %></h3>
-        <p><%= post.preview %></p>
+        <p><%= post.preview.html_safe %></p>
         <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn" %></p>
         
         <% if post != @posts.last %>
