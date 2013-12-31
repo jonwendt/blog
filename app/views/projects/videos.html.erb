@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h2><%= @game.title %></h2>
+  <h2><%= @project.title %></h2>
 </div>
 
 <hr>
@@ -7,18 +7,18 @@
 <div class="row-fluid">
   <div class="span3 sidebar"><%= render :partial => "sidebar" %></div>
   <div class="span9">
-    <% @game.videos.each do |video| %>
+    <% @project.videos.each do |video| %>
       <h3 style="margin-top: 0px;"><%= video.title %></h3>
       <p><%= link_to video.caption, video.path, :class => "btn" %></p>
       
-      <% if video != @game.videos.last %>
+      <% if video != @project.videos.last %>
         <hr><br/>
       <% end %>
     <% end %>
   </div>
 </div>
 
-<%= link_to "Edit Game", edit_game_path(@game), :class => "btn btn-primary" if @is_admin %>
+<%= link_to "Edit Project", edit_project_path(@project), :class => "btn btn-primary" if @is_admin %>
 
 <script>
   $('img').click(function() {

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.select("title, preview, id, tags").order("id desc")
+    @posts = Post.blog_posts.select("title, preview, id, tags").order("id desc")
 
     respond_to do |format|
       format.html
@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = Post.select("title, preview, id, tags").order("id desc")
+    @posts = Post.blog_posts.select("title, preview, id, tags").order("id desc")
     @post = Post.find(params[:id])
 
     respond_to do |format|

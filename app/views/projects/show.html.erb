@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h2><%= link_to @game.title, @game.download_link %></h2>
+  <h2><%= title_with_link(@project) %></h2>
 </div>
 
 <hr>
@@ -8,12 +8,12 @@
   <div class="span3 sidebar"><%= render :partial => "sidebar" %></div>
   <div class="span9">
     <div class="row-fluid">
-      <% @game.updates.each do |update| %>
-        <h3 style="margin-top: 0px;"><%= update.title %></h3>
-        <p><%= update.preview %></p>
-        <p><%= link_to "Read more &raquo;".html_safe, update_path(update.id), :class => "btn" %></p>
+      <% @project.posts.each do |post| %>
+        <h3 style="margin-top: 0px;"><%= post.title %></h3>
+        <p><%= post.preview %></p>
+        <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn" %></p>
         
-        <% if update != @game.updates.last %>
+        <% if post != @project.posts.last %>
           <hr><br/>
         <% end %>
       <% end %>
@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<%= link_to "Edit Game", edit_game_path(@game), :class => "btn btn-primary" if @is_admin %>
+<%= link_to "Edit Project", edit_project_path(@project), :class => "btn btn-primary" if @is_admin %>
 
 <script>
   $('img').click(function() {

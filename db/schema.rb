@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222002035) do
-
-  create_table "games", force: true do |t|
-    t.string   "title"
-    t.string   "preview"
-    t.string   "download_link"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20131231103414) do
 
   create_table "mixtapes", force: true do |t|
     t.text     "player_html"
@@ -35,27 +27,38 @@ ActiveRecord::Schema.define(version: 20131222002035) do
   create_table "pictures", force: true do |t|
     t.string   "path"
     t.text     "caption"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "post_order"
+    t.integer  "parent_id"
+    t.string   "parent_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|
-    t.text     "content"
+    t.integer  "project_id"
     t.text     "preview"
+    t.text     "content"
     t.string   "title"
     t.string   "tags"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "updates", force: true do |t|
-    t.integer  "game_id"
-    t.text     "content"
-    t.text     "preview"
+  create_table "projects", force: true do |t|
     t.string   "title"
-    t.string   "tags"
+    t.string   "preview"
+    t.string   "download_link"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "text_entries", force: true do |t|
+    t.integer "post_id"
+    t.integer "post_order"
+    t.text    "text"
   end
 
   create_table "users", force: true do |t|
@@ -78,9 +81,11 @@ ActiveRecord::Schema.define(version: 20131222002035) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "videos", force: true do |t|
-    t.integer  "game_id"
     t.string   "path"
     t.text     "caption"
+    t.integer  "post_order"
+    t.integer  "parent_id"
+    t.string   "parent_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

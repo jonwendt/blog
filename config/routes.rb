@@ -6,7 +6,7 @@ Blog::Application.routes.draw do
 
   resources :home
   resources :posts
-  resources :games do
+  resources :projects do
     member do
       get 'videos'
     end

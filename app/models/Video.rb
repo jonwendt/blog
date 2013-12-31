@@ -1,5 +1,6 @@
 class Video < ActiveRecord::Base
-  attr_accessible :path, :caption
+  attr_accessible :path, :caption, :post_order
+  belongs_to :parent, :polymorphic => true
 
   def build_html
     caption_html = ActionController::Base.helpers.content_tag :p, "\n#{self.caption}"
