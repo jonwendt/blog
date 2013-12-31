@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20131222002035) do
     t.text     "player_html"
     t.text     "content"
     t.string   "title"
+    t.string   "download_link"
     t.string   "tags"
-    t.boolean  "explicit",    default: false
+    t.boolean  "explicit",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
