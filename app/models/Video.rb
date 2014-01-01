@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-  attr_accessible :path, :caption, :post_order
+  attr_accessible :path, :caption
   belongs_to :parent, :polymorphic => true
 
   def build_html

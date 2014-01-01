@@ -1,16 +1,36 @@
-<%= render :partial => "header" %>
+<%= render :partial => 'header' %>
 
 <%= form_for @post do |f| %>
-  <div class="row-fluid">
-    <div class="span3"></div>
-    <div class="span6">
-        <h2>Title <%= f.text_field :title %></h2>
-        <p>Preview <%= f.text_field :preview %></p>
-        <p>Content <%= f.text_area :content %></p>
+  <div class='row-fluid'>
+    <div class='span3'></div>
+    <div class='span6'>
+        <h3>Title</h3>
+        <%= f.text_field :title %>
+
+        <h3>Content</h3>
+        <div class='image-container'>
+          <ol class='post-order'>
+            <li class='post-text'>First</li>
+            <li class='post-picture'>Second</li>
+            <li class='post-video'>Third</li>
+          </ol>
+        </div>
+        <p>
+          <%= link_to "Add Text Entry", nil, :class => "btn" %>
+          <%= link_to "Add Picture", nil, :class => "btn" %>
+          <%= link_to "Add Video", nil, :class => "btn" %>
+        <p>
         <p>Tags <%= f.text_field :tags %></p>
         <hr>
     </div>
-    <div class="span3"></div>
+    <div class='span3'></div>
   </div>
   <%= f.submit %>
+  <% f.project_id = params[:project_id] if params[:project_id] %>
 <% end %>
+
+<script>
+  $(document).ready(function() {
+    $('ol.post-order').sortable();
+  });
+</script>

@@ -1,5 +1,5 @@
 class Picture < ActiveRecord::Base
-  attr_accessible :path, :caption, :width, :height, :post_order
+  attr_accessible :path, :caption, :width, :height
   belongs_to :parent, :polymorphic => true
 
   def build_html

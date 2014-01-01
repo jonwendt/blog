@@ -4,7 +4,7 @@
   <div class="span3 sidebar"><%= render :partial => "sidebar" %></div>
   <div class="span9">
     <h3 style="margin-top: 0px;"><%= @post.title %></h3>
-    <p><%= @post.content.html_safe %></p>
+    <p><%= @post.content_html.html_safe %></p>
     <p><%= @post.tags %></p>
   </div>
 </div>
