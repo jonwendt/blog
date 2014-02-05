@@ -3,8 +3,7 @@ class CreateTexts < ActiveRecord::Migration
     create_table :texts do |t|
       t.text :text
 
-      t.integer :parent_id
-      t.string :parent_type
+      # t.integer :post_content_id
     end
   end
 end

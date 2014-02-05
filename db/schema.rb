@@ -29,8 +29,6 @@ ActiveRecord::Schema.define(version: 20131231235419) do
     t.text     "caption"
     t.integer  "width"
     t.integer  "height"
-    t.integer  "parent_id"
-    t.string   "parent_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,9 +60,7 @@ ActiveRecord::Schema.define(version: 20131231235419) do
   end
 
   create_table "texts", force: true do |t|
-    t.text    "text"
-    t.integer "parent_id"
-    t.string  "parent_type"
+    t.text "text"
   end
 
   create_table "users", force: true do |t|
@@ -89,8 +85,6 @@ ActiveRecord::Schema.define(version: 20131231235419) do
   create_table "videos", force: true do |t|
     t.string   "path"
     t.text     "caption"
-    t.integer  "parent_id"
-    t.string   "parent_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

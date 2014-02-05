@@ -1,0 +1,23 @@
+<h3>Title</h3>
+<%= f.text_field :title %>
+
+<h3>Content</h3>
+<div class='image-container'>
+  <ol class='post-order'>
+    <p>
+      <%= link_to_add_fields "Add Text", f, :texts %>
+      <%= link_to_add_fields "Add Picture", f, :pictures %>
+      <%= link_to_add_fields "Add Video", f, :videos %>
+    </p>
+    <% f.fields_for :post_contents do |pcf| %>
+      <% pcf.fields_for :content do |cf| %>
+        <% content_type = cf.object.class.to_s.downcase %>
+        <%= render content_type + "_fields", f: cf %>
+      <% end %>
+
+    <% end %>
+  </ol>
+</div>
+
+<p>Tags <%= f.text_field :tags %></p>
+<hr>

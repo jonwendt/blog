@@ -11,8 +11,8 @@
 <div class="row-fluid">
   <% @blog_posts.each_with_index do |post, index| %>
     <div class="span4" style="margin-bottom: 25px;">
-      <h3><%= post.title %></h3>
-      <p><%= post.preview %></p>
+      <h3 class="post-title"><%= post.title %></h3>
+      <p><%= post.preview.html_safe %></p>
       <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn" %></p>
     </div>
   <% end %>
@@ -27,8 +27,8 @@
 <div class="row-fluid">
   <% @project_posts.each_with_index do |post, index| %>
     <div class="span4" style="margin-bottom: 25px;">
-      <h3><%= post.title %></h3>
-      <p><%= post.preview %></p>
+      <h3 class="post-title"><%= post.title %></h3>
+      <p><%= post.preview.html_safe %></p>
       <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn" %></p>
     </div>
   <% end %>

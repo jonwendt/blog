@@ -6,8 +6,7 @@ class CreatePictures < ActiveRecord::Migration
       t.integer :width
       t.integer :height
 
-      t.integer :parent_id
-      t.string :parent_type
+      # t.integer :post_content_id
       t.timestamps
     end
   end

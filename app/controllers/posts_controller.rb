@@ -46,8 +46,30 @@ class PostsController < ApplicationController
   end
 
   def create
-    # Go through content looking for [PICTURE(URL)] and change to html
-    post = Post.new(params[:post])
+    post_contents_attr = params[:post].delete(:post_contents_attributes)
+
+    post = Post.create(params[:post].select { |k,v| k == "title" or k == "tags"})
+
+    post_contents_attr.each do |pca|
+      content = pca.second[:content]
+      next if content[:_destroy] == "true"
+      # Create PostContent
+      pc = post.post_contents.new(post_order: pca.first)
+
+      # Create the content for PostContent to contain
+      content_type = content[:content_type].capitalize
+      if content_type == "Picture" || content_type == "Video"
+        content = eval(content_type).find(content[:id])
+      elsif content_type == "Text"
+        content = Text.create(text: content[:text])
+      # else 
+      # content = eval(content_type).new(content.except(:content_type, :_destroy))
+      end
+
+      pc.content = content
+      pc.save
+      puts pc.inspect
+    end
 
     respond_to do |format|
       if post.save

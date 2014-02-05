@@ -4,24 +4,7 @@
   <div class='row-fluid'>
     <div class='span3'></div>
     <div class='span6'>
-        <h3>Title</h3>
-        <%= f.text_field :title %>
-
-        <h3>Content</h3>
-        <div class='image-container'>
-          <ol class='post-order'>
-            <li class='post-text'>First</li>
-            <li class='post-picture'>Second</li>
-            <li class='post-video'>Third</li>
-          </ol>
-        </div>
-        <p>
-          <%= link_to "Add Text Entry", nil, :class => "btn" %>
-          <%= link_to "Add Picture", nil, :class => "btn" %>
-          <%= link_to "Add Video", nil, :class => "btn" %>
-        <p>
-        <p>Tags <%= f.text_field :tags %></p>
-        <hr>
+      <%= render 'form', f: f %>
     </div>
     <div class='span3'></div>
   </div>

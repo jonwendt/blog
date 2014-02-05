@@ -138,3 +138,7 @@ ol.example li.placeholder:before {
 .sidebar {
   /*max-width: 500px;*/
 }
+
+.post-title {
+  line-height: 30px;
+}

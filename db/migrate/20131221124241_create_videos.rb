@@ -4,8 +4,7 @@ class CreateVideos < ActiveRecord::Migration
       t.string :path
       t.text :caption
 
-      t.integer :parent_id
-      t.string :parent_type
+      # t.integer :post_content_id
       t.timestamps
     end
   end
