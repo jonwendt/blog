@@ -25,13 +25,25 @@
 </head>
 <body>
   <div class="container">
+
+
+<ul class="nav nav-pills">
+                <%= nav_link("Home", root_url ) %>
+                <%= nav_link("Blog", posts_url) %>
+                <%= nav_link("Projects", projects_url) %>
+                <%= nav_link("Mixtapes", mixtapes_url) %>
+                <%= nav_link("Contact", contact_index_url) %>
+</ul>
+
+
     <div class="row">
       <div class="masthead">
+        <!--
         <div class="navbar">
           <div class="navbar-inner">
             <div class="container">
               <ul class="nav">
-                <%= nav_link("Home", root_url) %>
+                <%= nav_link("Home", root_url ) %>
                 <%= nav_link("Blog", posts_url) %>
                 <%= nav_link("Projects", projects_url) %>
                 <%= nav_link("Mixtapes", mixtapes_url) %>

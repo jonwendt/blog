@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require cocoon
 //= require_tree .
 
 function remove_fields(link) {
@@ -23,5 +24,5 @@ function remove_fields(link) {
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")
-  $(link).parent().after(content.replace(regexp, new_id));
+  $(link).parent().parent().append(content.replace(regexp, new_id));
 }

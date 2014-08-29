@@ -29,6 +29,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'spring', group: :development
 
+gem 'cocoon'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

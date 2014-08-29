@@ -1,23 +1,46 @@
-<h3>Title</h3>
-<%= f.text_field :title %>
+<%= form_for @post do |f| %>
+  <div class='row-fluid'>
+    <div class='span3'></div>
+    <div class='span6'>
+      <h3>Title</h3>
+      <%= f.text_field :title %>
 
-<h3>Content</h3>
-<div class='image-container'>
-  <ol class='post-order'>
-    <p>
-      <%= link_to_add_fields "Add Text", f, :texts %>
-      <%= link_to_add_fields "Add Picture", f, :pictures %>
-      <%= link_to_add_fields "Add Video", f, :videos %>
-    </p>
-    <% f.fields_for :post_contents do |pcf| %>
-      <% pcf.fields_for :content do |cf| %>
-        <% content_type = cf.object.class.to_s.downcase %>
-        <%= render content_type + "_fields", f: cf %>
-      <% end %>
+      <h3>Content</h3>
+      <%= link_to_add_association 'Add Text', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Text'}, {}); puts post_content.inspect; post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn', style: 'margin-left: 15px; margin-top: -15px' %>
+      <%= link_to_add_association 'Add Picture', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Picture'}, {}); puts post_content.content.inspect; post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn', style: 'margin-left: 15px; margin-top: -15px' %>
 
-    <% end %>
-  </ol>
-</div>
+      <div id='post-content' class='image-container'>
+        <ol class='post-order' data-update-url='<%= update_position_post_url if params[:id] %>'>
+          <%= f.fields_for :post_contents do |pcf| %>
+            <%= render "post_content_fields", f: pcf %>
+          <% end %>
+        </ol>
+      </div>
 
-<p>Tags <%= f.text_field :tags %></p>
-<hr>
+      <p>Tags <%= f.text_field :tags %></p>
+      <hr>
+    </div>
+    <div class='span3'></div>
+  </div>
+  <%= f.submit %>
+  <% f.project_id = params[:project_id] if params[:project_id] %>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    $('ol.post-order').sortable({
+      update: function() {
+        $.post($('.post-order').data('update-url'), $(this).sortable('serialize'));
+        $.ajax({
+          url: $('.post-order').data('update-url'),
+          type: "post",
+          data: $('.post-order').sortable('serialize'),
+          error: function(){
+              alert("theres an error with AJAX");
+          },
+          success: function(feedback){ $("#data").html(feedback); }
+        });
+      }
+    });
+  });
+</script>

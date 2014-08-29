@@ -19,22 +19,29 @@ class Post < ActiveRecord::Base
 
   def build_html
     html = ""
-    # (self.text_entries + self.pictures + self.videos).sort_by { |c| c.post_order }.each do |content|
+    # (self.text_entries + self.pictures + self.videos).sort_by { |c| c.position }.each do |content|
     self.post_contents.each do |content|
       html += content.build_html
     end
 
+    self.preview = self.post_contents.first.content.build_html
     self.content_html = html
   end
 end
 
 class PostContent < ActiveRecord::Base
-  attr_accessible :post_order, :content, :content_type
+  attr_accessible :position, :content, :content_type, :content_id, :content_attributes
   belongs_to :post
   belongs_to :content, :polymorphic => true
   accepts_nested_attributes_for :content
 
   def build_html
     content.build_html
+  end
+
+  def build_content(params, assignment_options)
+    params[:content_type] = 'Text' if params[:text] # TODO - Fix
+    puts params.inspect
+    self.content = params[:content_type].constantize.new(params)
   end
 end

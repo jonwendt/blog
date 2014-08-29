@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20131231235419) do
   end
 
   create_table "pictures", force: true do |t|
+    t.integer  "pictureable_id"
+    t.string   "pictureable_type"
     t.string   "path"
     t.text     "caption"
     t.integer  "width"
@@ -35,7 +37,7 @@ ActiveRecord::Schema.define(version: 20131231235419) do
 
   create_table "post_contents", force: true do |t|
     t.integer "post_id"
-    t.integer "post_order"
+    t.integer "position"
     t.integer "content_id"
     t.string  "content_type"
   end
@@ -60,7 +62,9 @@ ActiveRecord::Schema.define(version: 20131231235419) do
   end
 
   create_table "texts", force: true do |t|
-    t.text "text"
+    t.integer "post_id"
+    t.text    "text"
+    t.integer "position"
   end
 
   create_table "users", force: true do |t|
@@ -83,8 +87,11 @@ ActiveRecord::Schema.define(version: 20131231235419) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "videos", force: true do |t|
+    t.integer  "videoable_id"
+    t.string   "videoable_type"
     t.string   "path"
     t.text     "caption"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

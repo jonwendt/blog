@@ -1,5 +1,1 @@
-<li class='post-<%= f.object.class.to_s.downcase %> fields'>
-  <%= f.number_field :id %>
-  <%= link_to_remove_fields "remove", f %>
-  <%= f.hidden_field :content_type, value: f.object.class.to_s.downcase %>
-</li>
+<%= f.number_field :content_id %>

@@ -5,7 +5,11 @@ Blog::Application.routes.draw do
   # first created -> highest priority.
 
   resources :home
-  resources :posts
+  resources :posts do
+    member do
+      post 'update_position'
+    end
+  end
   resources :projects do
     member do
       get 'videos'

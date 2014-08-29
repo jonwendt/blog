@@ -1,5 +1,5 @@
+<%= render :partial => "partials/header", locals: { :text => "Mixtapes" } %>
 
-<%= render :partial => "header" %>
     <% @mixtapes.each_with_index do |mixtape, index| %>
       <% if index%2 == 0 %>
         <div class="row-fluid">

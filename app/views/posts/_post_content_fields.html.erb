@@ -1,0 +1,7 @@
+<li class='nested-fields'>
+  <%= f.fields_for :content do |content| %>
+    <%= render partial: f.object.content_type.downcase + "_fields", locals: { f: f, content: content } %>
+  <% end %>
+  <%= f.hidden_field :content_type %>
+  <%= link_to_remove_association 'Remove', f, class: 'btn btn-danger' %>
+</li>
