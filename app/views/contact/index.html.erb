@@ -4,14 +4,14 @@
 
 <hr>
 
-<div class="row-fluid">
-  <div class="span6">
+<div class="row">
+  <div class="col-md-6">
     <p><b>Email</b> - <%= mail_to "jpwendt@asu.edu" %></p>
     <p><b>Phone</b> - Available upon request</p>
     <p><b>Résumé</b> - <%= link_to "Here", "https://www.dropbox.com/s/u00e5bffg1nwev7/Resume.pdf" %></p>
   </div>
 
-  <div class="span6 image-container">
-    <%= image_tag("http://i.imgur.com/GGcXr5y.png") %>
+  <div class="col-md-6 image-container">
+    <%= image_tag("http://i.imgur.com/GGcXr5y.png", class: 'img-responsive') %>
   </div>
 </div>

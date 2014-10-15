@@ -1,23 +1,40 @@
-<style type="text/css">
-  .sidebar-nav {
-    padding: 9px 0;
-  }
-</style>
-
+<% if true %>
 <div class="well sidebar-nav">
   <ul class="nav nav-list">
     <li class="nav-header">Memories</li>
     <% memories_posts(@posts).each do |post| %>
-      <%= sidebar_link(post) %>
+      <li><%= sidebar_link(post) %></li>
     <% end %>
+    <hr>
     <li class="nav-header">Musings</li>
     <% musings_posts(@posts).each do |post| %>
-      <%= sidebar_link(post) %>
+      <li><%= sidebar_link(post) %></li>
     <% end %>
     
     <% if @is_admin %>
-      <br/>
+      <br>
       <%= link_to "New Post", new_post_path, :class => "btn btn-primary" %>
     <% end %>
   </ul>
 </div>
+<% else %>
+
+<div class="list-group">
+  <h4 class="list-group-header">Memories</h4>
+  <% memories_posts(@posts).each do |post| %>
+    <%= sidebar_link(post) %>
+  <% end %>
+</div>
+<div class="list-group">
+  <h4 class="nav-header">Musings</h4>
+  <% musings_posts(@posts).each do |post| %>
+    <%= sidebar_link(post) %>
+  <% end %>
+</div>
+<% if @is_admin %>
+  <%= link_to "New Post", new_post_path, :class => "btn btn-primary" %>
+  <br><br>
+<% end %>
+<hr>
+
+<% end %>

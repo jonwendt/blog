@@ -1,4 +1,5 @@
 class Video < ActiveRecord::Base
+  # has_one :post_content
   attr_accessible :path, :caption
 
   def build_html

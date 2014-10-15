@@ -1,29 +1,26 @@
 <%= form_for @post do |f| %>
-  <div class='row-fluid'>
-    <div class='span3'></div>
-    <div class='span6'>
-      <h3>Title</h3>
-      <%= f.text_field :title %>
+  <div class='row'>
+    <h3>Title</h3>
+    <%= f.text_field :title %>
 
-      <h3>Content</h3>
-      <%= link_to_add_association 'Add Text', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Text'}, {}); puts post_content.inspect; post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn', style: 'margin-left: 15px; margin-top: -15px' %>
-      <%= link_to_add_association 'Add Picture', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Picture'}, {}); puts post_content.content.inspect; post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn', style: 'margin-left: 15px; margin-top: -15px' %>
+    <h3>Content</h3>
+    <%= link_to_add_association 'Add Text', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Text'}, {}); puts post_content.inspect; post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn btn-primary' %>
+    <%= link_to_add_association 'Add Picture', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Picture'}, {}); puts post_content.content.inspect; post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn btn-info' %>
 
-      <div id='post-content' class='image-container'>
-        <ol class='post-order' data-update-url='<%= update_position_post_url if params[:id] %>'>
-          <%= f.fields_for :post_contents do |pcf| %>
-            <%= render "post_content_fields", f: pcf %>
-          <% end %>
-        </ol>
-      </div>
-
-      <p>Tags <%= f.text_field :tags %></p>
-      <hr>
+    <div id='post-content' class='image-container'>
+      <ol class='post-order' data-update-url='<%= update_position_post_url if params[:id] %>'>
+        <%= f.fields_for :post_contents do |pcf| %>
+          <%= render "post_content_fields", f: pcf %>
+        <% end %>
+      </ol>
     </div>
-    <div class='span3'></div>
+
+    <p>Tags <%= f.text_field :tags %></p>
+
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
-  <%= f.submit %>
-  <% f.project_id = params[:project_id] if params[:project_id] %>
+
+  <%= f.hidden_field :project_id, value: params[:project_id] if params[:project_id] %>
 <% end %>
 
 <script>
@@ -40,7 +37,7 @@
           },
           success: function(feedback){ $("#data").html(feedback); }
         });
-      }
+      }.enableSelection();
     });
   });
 </script>

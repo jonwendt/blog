@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron masthead">
   <h1>JonWendt.com</h1>
   <p class="lead">An aggregation of memories, musings, and projects from Jonathan Patrick Wendt</p>
 </div>
@@ -8,12 +8,12 @@
 
 <h2><%= link_to "Blog", posts_path %></h2>
 
-<div class="row-fluid">
-  <% @blog_posts.each_with_index do |post, index| %>
-    <div class="span4" style="margin-bottom: 25px;">
+<div class="row">
+  <% @blog_posts.each do |post| %>
+    <div class="col-md-4">
       <h3 class="post-title"><%= post.title %></h3>
       <p><%= post.preview.html_safe %></p>
-      <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn" %></p>
+      <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn btn-default" %></p>
     </div>
   <% end %>
 </div>
@@ -24,12 +24,12 @@
 
 <h2><%= link_to "Projects", projects_path %></h2>
 
-<div class="row-fluid">
-  <% @project_posts.each_with_index do |post, index| %>
-    <div class="span4" style="margin-bottom: 25px;">
+<div class="row">
+  <% @project_posts.each do |post| %>
+    <div class="col-md-4">
       <h3 class="post-title"><%= post.title %></h3>
       <p><%= post.preview.html_safe %></p>
-      <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn" %></p>
+      <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn btn-default" %></p>
     </div>
   <% end %>
 </div>

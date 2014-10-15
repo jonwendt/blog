@@ -1,15 +1,15 @@
-<%= render :partial => "partials/header", locals: { :text => "Jon's Thoughts On..." } %>
+<%= render :partial => "partials/header", locals: { :text => header_text(@project) } %>
 
-<div class="row-fluid">
-  <div class="span3 sidebar"><%= render :partial => "sidebar" %></div>
-  <div class="span9">
-    <h3 style="margin-top: 0px;" class="post-title"><%= @post.title %></h3>
+<div class="row">
+  <div class="col-md-3 sidebar"><%= render :partial => sidebar_partial(@project) %></div>
+  <div class="col-md-9">
+    <h3 class="post-title"><%= @post.title %></h3>
     <p><%= @post.content_html.html_safe %></p>
     <p>Tags: <%= @post.tags %></p>
+
+    <%= link_to "Edit Post", edit_post_path(@post), :class => "btn btn-primary" if @is_admin %>
   </div>
 </div>
-
-<%= link_to "Edit Post", edit_post_path(@post), :class => "btn btn-primary" if @is_admin %>
 
 <script>
   $('.expandable').click(function() {

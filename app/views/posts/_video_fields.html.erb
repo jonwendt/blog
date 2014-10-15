@@ -1,4 +1,2 @@
-<li class='post-<%= f.object.class.to_s.downcase %> fields'>
-  <%= f.number_field :id %>
-  <%= f.hidden_field :content_type, value: f.object.class.to_s.downcase %>
-</li>
+<%= f.number_field :id, class: 'form-control' %>
+<%= f.hidden_field :content_type, value: f.object.class.to_s.downcase %>

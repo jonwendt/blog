@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     @posts = Post.blog_posts.select("title, preview, id, tags").order("id desc")
 
@@ -11,6 +10,8 @@ class PostsController < ApplicationController
   def show
     @posts = Post.blog_posts.select("title, preview, id, tags").order("id desc")
     @post = Post.find(params[:id])
+
+    @project = Project.find(params[:project_id]) if params[:project_id]
 
     respond_to do |format|
       format.html
@@ -33,26 +34,24 @@ class PostsController < ApplicationController
     end
   end
 
-  # TODO - Ugly
   def update
     post = Post.find(params[:id])
 
     respond_to do |format|
-      if post and post.update_attributes(params[:post])
-        format.html { redirect_to post }
+      if post and post.update_attributes(params[:post])#.permit(:project_id, :title, :tags, :_destroy, post_contents_attributes: [:text, :id, content_attributes: []]))
+        format.html { redirect_to (post.project_id ? project_post_path(post.project_id, post.id) : post) }
       else
         format.html { redirect_to posts_url }
       end
     end
   end
 
-  # TODO - Ugly
   def create
-    post = Post.new(params[:post])
+    post = Post.new(params[:post])#.permit(:project_id, :title, :tags, post_contents_attributes: [:text, :id]))
 
     respond_to do |format|
       if post.save
-        format.html { redirect_to post }
+        format.html { redirect_to (post.project_id ? project_post_path(post.project_id, post.id) : post) }
       else
         format.html { render 'new' }
       end

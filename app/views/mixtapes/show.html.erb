@@ -6,18 +6,14 @@
 <hr>
 
 <div class="row">
-  <div class="span5" style="max-width: 300px;"><%= @mixtape.player_html.html_safe %></div>
-  <div class="span7">
+  <div class="col-md-5" style="max-width: 300px;"><%= @mixtape.player_html.html_safe %></div>
+  <div class="col-md-7">
     <%= @mixtape.content.html_safe %>
-    <p><%= @mixtape.tags %></p>
+    <br><br>
+    <p>Tags: <%= @mixtape.tags %></p>
   </div>
-<!-- <div class="row-fluid"> -->
-  <!-- <div class="span3 sidebar"><%#= render :partial => "sidebar" %></div> -->
-  <!-- <div class="span9"> -->
-    <!-- <h3 style="margin-top: 0px;"><%= @mixtape.title %></h3> -->
-  <!-- </div> -->
-<!-- </div> -->
+</div>
+
+<br>
 
 <%= link_to "Edit Mixtape", edit_mixtape_path(@mixtape), :class => "btn btn-primary" if @is_admin %>
-
-</div>

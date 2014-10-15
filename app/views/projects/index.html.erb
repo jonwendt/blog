@@ -1,17 +1,15 @@
 <%= render partial: "partials/header", locals: { text:  "Games" } %>
-<% @projects.each_with_index do |project, index| %>
-  <% if index%3 == 0 %>
-    <div class="row-fluid">
-  <% end %>
 
-  <div class="image-container span4" style="margin-bottom: 10px;">
-    <h3 style="margin-top: 0px;"><%= link_to project.title, project_path(project.id) %></h3>
-    <%= link_to image_tag(project.preview), project_path(project.id) %>
-    
-  </div>
-
-  <% if index%3 == 2 or index == @projects.size - 1 %>
+<div class='row'>
+  <% @projects.each do |project| %>
+    <div class="col-md-4" style="padding: 10px;">
+      <div class='image-container'>
+        <h3 class='post-title'><%= link_to project.title, project_path(project.id) %></h3>
+        <%= link_to image_tag(project.preview, class: 'img-responsive'), project_path(project.id) %>
+      </div>
     </div>
   <% end %>
-<% end %>
-<br/>
+</div>
+<br>
+
+<%= link_to 'New Project', new_project_path, class: 'btn btn-primary' %>

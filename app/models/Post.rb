@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
-  attr_accessible :title, :preview, :tags, :post_contents_attributes
+  attr_accessible :title, :preview, :tags, :post_contents_attributes, :project_id
   has_many :post_contents
-  accepts_nested_attributes_for :post_contents, allow_destroy: true
+  accepts_nested_attributes_for :post_contents, allow_destroy: true, reject_if: :all_blank
 
   # has_many :text
   # has_many :pictures, :as => :parent
@@ -33,7 +33,7 @@ class PostContent < ActiveRecord::Base
   attr_accessible :position, :content, :content_type, :content_id, :content_attributes
   belongs_to :post
   belongs_to :content, :polymorphic => true
-  accepts_nested_attributes_for :content
+  accepts_nested_attributes_for :content, allow_destroy: true
 
   def build_html
     content.build_html
