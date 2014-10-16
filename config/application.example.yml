@@ -1,0 +1,2 @@
+SECRET_TOKEN: # Use rake secret to generate
+SECRET_KEY: # Generate devise key
