@@ -2,10 +2,14 @@
 
 <div class="row">
   <div class="col-md-3 sidebar"><%= render :partial => sidebar_partial(@project) %></div>
-  <div class="col-md-9">
+  <div class="col-md-9 post-content">
     <h3 class="post-title"><%= @post.title %></h3>
     <p><%= @post.content_html.html_safe %></p>
-    <p>Tags: <%= @post.tags %></p>
+
+    <br>
+
+    <p style='font-size: 14px'>Tags: <%= @post.tags %></p>
+    <p style='font-size: 14px'>Posted on <%= @post.created_at.in_time_zone('MST').strftime("%b %-d, %Y at %l:%M %P") %></p>
 
     <%= link_to "Edit Post", edit_post_path(@post), :class => "btn btn-primary" if @is_admin %>
   </div>

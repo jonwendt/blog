@@ -6,7 +6,6 @@ class CreateVideos < ActiveRecord::Migration
 
       t.string :path
       t.text :caption
-      t.integer :position
       t.timestamps
     end
   end

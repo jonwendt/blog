@@ -5,6 +5,7 @@ class CreatePostContents < ActiveRecord::Migration
 
       t.integer :content_id
       t.string :content_type
+      t.integer :position
     end
   end
 end

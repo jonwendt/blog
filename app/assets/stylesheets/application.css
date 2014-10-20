@@ -33,9 +33,9 @@ body {
   margin: 30px 0;
   text-align: center;
 }
-.jumbotron h1 {
-/*  font-size: 79px;
-  line-height: 1;*/
+.jumbotron h2 {
+  font-size: 45px;
+  line-height: 1;
 }
 .jumbotron .lead {
   font-size: 24px;
@@ -115,10 +115,15 @@ ol.example li.placeholder:before {
   -moz-border-radius: 10px;
   border-radius: 10px;
   color: #aaa;
-  margin: 20px 0 35px 0;
 
   word-wrap: break-word;
   word-break: break-word;
+}
+.image-container h3 {
+  font-size: 30px;
+}
+.post-content .image-container {
+  margin: 20px 0 20px 0;
 }
 .image-container .expandable {
   max-height: 400px;
@@ -129,6 +134,12 @@ ol.example li.placeholder:before {
 .image-container .image-caption {
   margin: 10px 0 0 0;
 }
+.project-preview img {
+  /*max-height: 400px;*/
+  text-align: center;
+  margin: 0 auto;
+}
+
 
 .sidebar {
   /*max-width: 500px;*/
@@ -196,4 +207,11 @@ ol.example li.placeholder:before {
 .post-title {
   line-height: 30px;
   margin-top: 0px;
+}
+
+.post-content {
+  font-size: 16px;
+}
+.post-content > p {
+  font-size: 16px;
 }

@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :title
       t.string :preview
       t.string :download_link
-      t.string :type
+      t.string :project_type
       t.timestamps
     end
   end

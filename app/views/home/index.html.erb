@@ -12,7 +12,7 @@
   <% @blog_posts.each do |post| %>
     <div class="col-md-4">
       <h3 class="post-title"><%= post.title %></h3>
-      <p><%= post.preview.html_safe %></p>
+      <p class="post-content"><%= post.preview.html_safe %></p>
       <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn btn-default" %></p>
     </div>
   <% end %>
@@ -28,7 +28,7 @@
   <% @project_posts.each do |post| %>
     <div class="col-md-4">
       <h3 class="post-title"><%= post.title %></h3>
-      <p><%= post.preview.html_safe %></p>
+      <p class="post-content"><%= post.preview.html_safe %></p>
       <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn btn-default" %></p>
     </div>
   <% end %>

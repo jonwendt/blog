@@ -4,8 +4,8 @@
     <%= f.text_field :title %>
 
     <h3>Content</h3>
-    <%= link_to_add_association 'Add Text', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Text'}, {}); puts post_content.inspect; post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn btn-primary' %>
-    <%= link_to_add_association 'Add Picture', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Picture'}, {}); puts post_content.content.inspect; post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn btn-info' %>
+    <%= link_to_add_association 'Add Text', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Text'}, {}); post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn btn-primary' %>
+    <%= link_to_add_association 'Add Picture', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Picture'}, {}); post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn btn-info' %>
 
     <div id='post-content' class='image-container'>
       <ol class='post-order' data-update-url='<%= update_position_post_url if params[:id] %>'>

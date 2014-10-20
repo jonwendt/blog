@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
       html += content.build_html
     end
 
-    self.preview = self.post_contents.first.content.build_html
+    self.preview = self.post_contents.first.content_type == 'Text' ? self.post_contents.first.content.text : self.post_contents.first.content.build_html
     self.content_html = html
   end
 end
@@ -42,6 +42,6 @@ class PostContent < ActiveRecord::Base
   def build_content(params, assignment_options)
     params[:content_type] = 'Text' if params[:text] # TODO - Fix
     puts params.inspect
-    self.content = params[:content_type].constantize.new(params)
+    self.content = params[:content_type].constantize.new(params.except(:content_type))
   end
 end

@@ -3,8 +3,7 @@ class CreateTexts < ActiveRecord::Migration
     create_table :texts do |t|
       t.integer :post_id
       
-      t.text :text
-      t.integer :position
+      t.text :text, default: ''
     end
   end
 end

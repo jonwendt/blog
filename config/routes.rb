@@ -7,17 +7,23 @@ Blog::Application.routes.draw do
   resources :home
   resources :posts do
     member do
-      post 'update_position'
+      post :update_position
     end
   end
   resources :projects do
     resources :posts
     member do
-      get 'videos'
+      get :videos
     end
   end
   resources :mixtapes
   resources :contact
+
+  resources :internal do
+    collection do
+      post :sarah_pi
+    end
+  end
   
   #resources :blog, :controller => :posts
 

@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20131231235419) do
   end
 
   create_table "pictures", force: true do |t|
-    t.integer  "pictureable_id"
-    t.string   "pictureable_type"
+    t.integer  "parent_id"
+    t.string   "parent_type"
     t.string   "path"
     t.text     "caption"
     t.integer  "width"
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20131231235419) do
 
   create_table "post_contents", force: true do |t|
     t.integer "post_id"
-    t.integer "position"
     t.integer "content_id"
     t.string  "content_type"
+    t.integer "position"
   end
 
   create_table "posts", force: true do |t|
@@ -56,15 +56,14 @@ ActiveRecord::Schema.define(version: 20131231235419) do
     t.string   "title"
     t.string   "preview"
     t.string   "download_link"
-    t.string   "type"
+    t.string   "project_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "texts", force: true do |t|
     t.integer "post_id"
-    t.text    "text"
-    t.integer "position"
+    t.text    "text",    default: ""
   end
 
   create_table "users", force: true do |t|
@@ -91,7 +90,6 @@ ActiveRecord::Schema.define(version: 20131231235419) do
     t.string   "parent_type"
     t.string   "path"
     t.text     "caption"
-    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
