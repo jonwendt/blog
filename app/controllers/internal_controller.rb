@@ -1,10 +1,15 @@
 class InternalController < ApplicationController
   def sarah_pi
-    path = Rails.root.to_s + '/internal/data/sarah_pi.txt'
-    File.open(path, "w+") do |f|
-      f.write(params)
-    end
+    Internal.sarah_pi(params)
 
     render text: 'File written.'
+  end
+
+  def check_sarah_pi
+    if Internal.check_sarah_pi
+      render text: "Sarah's Pi checked in!"
+    else
+      raise 'Something went wrong!'
+    end
   end
 end

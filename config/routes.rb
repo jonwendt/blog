@@ -22,6 +22,7 @@ Blog::Application.routes.draw do
   resources :internal do
     collection do
       post :sarah_pi
+      get :check_sarah_pi
     end
   end
   

@@ -19,8 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 5.minutes do
-  # runner "MyModel.some_process"
+set :environment, :development
+
+every 30.seconds do
+  runner "Internal.check_sarah_pi"
   # rake "my:rake:task"
-  command "ruby #{Rails.root}/internal/check_sarah_pi.rb"
+  # command "ruby #{Rails.root}/internal/check_sarah_pi.rb"
 end
