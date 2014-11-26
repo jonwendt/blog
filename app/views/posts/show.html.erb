@@ -4,7 +4,7 @@
   <div class="col-md-3 sidebar"><%= render :partial => sidebar_partial(@project) %></div>
   <div class="col-md-9 post-content">
     <h3 class="post-title"><%= @post.title %></h3>
-    <p><%= @post.content_html.html_safe %></p>
+    <%= @post.content_html.html_safe %>
 
     <br>
 

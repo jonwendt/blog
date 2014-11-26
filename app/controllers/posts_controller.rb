@@ -20,6 +20,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @project = Project.find(params[:project_id]) if params[:project_id]
+    @title = @project ? @project.title : "Jon's Thoughts On..."
 
     respond_to do |format|
       format.html

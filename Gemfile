@@ -28,6 +28,8 @@ gem 'protected_attributes'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'spring', group: :development
+gem 'mechanize'
+gem 'fastimage'
 
 gem 'cocoon'
 
