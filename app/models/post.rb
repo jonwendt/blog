@@ -3,10 +3,6 @@ class Post < ActiveRecord::Base
   has_many :post_contents
   accepts_nested_attributes_for :post_contents, allow_destroy: true, reject_if: :all_blank
 
-  # has_many :text
-  # has_many :pictures, :as => :parent
-  # has_many :videos, :as => :parent
-
   before_save :build_html
 
   def self.blog_posts
@@ -19,7 +15,6 @@ class Post < ActiveRecord::Base
 
   def build_html
     html = ""
-    # (self.text_entries + self.pictures + self.videos).sort_by { |c| c.position }.each do |content|
     self.post_contents.each do |content|
       html += content.build_html
     end
@@ -34,6 +29,7 @@ class PostContent < ActiveRecord::Base
   belongs_to :post
   belongs_to :content, :polymorphic => true
   accepts_nested_attributes_for :content, allow_destroy: true
+  default_scope { order(:position) }
 
   def build_html
     content.build_html

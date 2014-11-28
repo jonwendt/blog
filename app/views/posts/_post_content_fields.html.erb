@@ -1,13 +1,16 @@
-<li class='nested-fields'>
+<li id='post_content_<%= f.object.id %>' class='nested-fields'>
   <div class='row'>
+    <div class='col-md-2'>
+      <i class="handle fa fa-sort"></i>
+      <%= f.hidden_field :content_type %>
+      <%= f.hidden_field :position, class: 'post-content-position' %>
+      <%= link_to_remove_association 'Remove', f, class: 'btn btn-danger pull-right' %>
+
+    </div>
     <div class='col-md-10'>
       <%= f.fields_for :content do |content| %>
         <%= render partial: f.object.content_type.downcase + "_fields", locals: { f: f, content: content } %>
       <% end %>
-    </div>
-    <div class='col-md-2'>
-      <%= f.hidden_field :content_type %>
-      <%= link_to_remove_association 'Remove', f, class: 'btn btn-danger' %>
     </div>
   </div>
 </li>

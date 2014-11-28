@@ -4,12 +4,12 @@
     <%= f.text_field :title %>
 
     <h3>Content</h3>
-    <%= link_to_add_association 'Add Text', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Text'}, {}); post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn btn-primary' %>
-    <%= link_to_add_association 'Add Picture', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Picture'}, {}); post_content }, 'data-association-insertion-node' => '.post-order', 'data-association-insertion-method' => 'append', class: 'btn btn-info' %>
+    <%= link_to_add_association 'Add Text', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Text'}, {}); post_content }, 'data-association-insertion-node' => '#post_contents', 'data-association-insertion-method' => 'append', class: 'btn btn-primary', id: 'add-text' %>
+    <%= link_to_add_association 'Add Picture', f, :post_contents, :wrap_object => Proc.new { |post_content| post_content.build_content({content_type: 'Picture'}, {}); post_content }, 'data-association-insertion-node' => '#post_contents', 'data-association-insertion-method' => 'append', class: 'btn btn-info', id: 'add-picture' %>
 
     <div id='post-content' class='image-container'>
-      <ol class='post-order' data-update-url='<%= update_position_post_url if params[:id] %>'>
-        <%= f.fields_for :post_contents do |pcf| %>
+      <ol id='post_contents' data-update-url='<%= update_position_post_url if params[:id] %>'>
+        <%= f.fields_for :post_contents, @post.post_contents do |pcf| %>
           <%= render "post_content_fields", f: pcf %>
         <% end %>
       </ol>
@@ -17,27 +17,23 @@
 
     <p>Tags <%= f.text_field :tags %></p>
 
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit class: 'btn btn-primary', id: 'update-post' %>
   </div>
 
   <%= f.hidden_field :project_id, value: params[:project_id] if params[:project_id] %>
 <% end %>
 
+
 <script>
+  var updatePositions = function() {
+    $('.post-content-position').each(function(index) {
+      $(this).attr('value', index);
+    });
+  }
   $(document).ready(function() {
-    $('ol.post-order').sortable({
-      update: function() {
-        $.post($('.post-order').data('update-url'), $(this).sortable('serialize'));
-        $.ajax({
-          url: $('.post-order').data('update-url'),
-          type: "post",
-          data: $('.post-order').sortable('serialize'),
-          error: function(){
-              alert("theres an error with AJAX");
-          },
-          success: function(feedback){ $("#data").html(feedback); }
-        });
-      }.enableSelection();
+    $('#post_contents').sortable();
+    $('#update-post').click(function() {
+      updatePositions();
     });
   });
 </script>
