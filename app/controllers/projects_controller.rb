@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
       if project and project.update_attributes(params[:project])
         format.html { redirect_to project }
       else
-        format.html { redirect_to projects_url }
+        format.html { redirect_to projects_path }
       end
     end
   end

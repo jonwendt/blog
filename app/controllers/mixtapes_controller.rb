@@ -34,7 +34,7 @@ class MixtapesController < ApplicationController
       if mixtape and mixtape.update_attributes(params[:mixtape])
         format.html { redirect_to mixtape }
       else
-        format.html { redirect_to mixtapes_url }
+        format.html { redirect_to mixtapes_path }
       end
     end
   end

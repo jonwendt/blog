@@ -43,7 +43,7 @@ class PostsController < ApplicationController
       if post and post.update_attributes(params[:post])#.permit(:project_id, :title, :tags, :_destroy, post_contents_attributes: [:text, :id, content_attributes: []]))
         format.html { redirect_to (post.project_id ? project_post_path(post.project_id, post.id) : post) }
       else
-        format.html { redirect_to posts_url }
+        format.html { redirect_to posts_path }
       end
     end
   end
@@ -65,7 +65,7 @@ class PostsController < ApplicationController
     post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to posts_path }
     end
   end
 

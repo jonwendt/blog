@@ -9,7 +9,7 @@ class InternalController < ApplicationController
     if Internal.check_sarah_pi
       render text: "Sarah's Pi checked in!"
     else
-      raise 'Something went wrong!'
+      render text: "Sarah's Pi has NOT checked in! Email sent."
     end
   end
 end
