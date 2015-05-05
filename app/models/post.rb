@@ -37,7 +37,6 @@ class PostContent < ActiveRecord::Base
 
   def build_content(params, assignment_options)
     params[:content_type] = 'Text' if params[:text] # TODO - Fix
-    puts params.inspect
-    self.content = params[:content_type].constantize.new(params.except(:content_type))
+    content = params[:content_type].constantize.new(params.except(:content_type))
   end
 end
