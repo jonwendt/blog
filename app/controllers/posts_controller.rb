@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :enforce_privileges, only: [:new, :create, :edit, :update, :destroy, :update_position]
   def index
     @posts = Post.blog_posts.select("title, preview, id, tags").order("id desc")
 

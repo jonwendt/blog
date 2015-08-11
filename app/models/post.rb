@@ -13,6 +13,10 @@ class Post < ActiveRecord::Base
     self.where("project_id IS NOT NULL and public IS ?", true)
   end
 
+  def self.project_posts_all
+    self.where("project_id IS NOT NULL")
+  end
+
   def build_html
     html = ""
     self.post_contents.each do |content|

@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_filter :enforce_privileges, :only => [:new, :create, :edit, :update, :destroy]
   def index
     @projects = Project.all
   end

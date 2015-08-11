@@ -18,7 +18,11 @@ Blog::Application.routes.draw do
   end
   resources :mixtapes
   resources :contact
-
+  resources :pictures do
+    collection do
+      post :add_from_urls
+    end
+  end
   resources :internal do
     collection do
       post :sarah_pi

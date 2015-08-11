@@ -14,15 +14,13 @@
 /log/*.log
 /tmp
 
-# Don't backup secret token
-/config/initializers/secret_token.rb
-
 .DS_Store
 
 /app/assets/images/posts/*
+/public/assets
 
-notes.txt
 .elasticbeanstalk/
 
 # Ignore application configuration
 /config/application.yml
+

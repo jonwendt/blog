@@ -1,6 +1,8 @@
-<%= form_tag add_from_urls_pictures_path, method: :post do %>
-  <%= text_area_tag :urls, nil, placeholder: 'Imgur URLs separated by spaces' %>
-  <%= submit_tag 'Add Pictures', class: 'btn btn-primary' %>
+<% if @is_admin %>
+  <%= form_tag add_from_urls_pictures_path, method: :post do %>
+    <%= text_area_tag :urls, nil, placeholder: 'Imgur URLs separated by spaces' %>
+    <%= submit_tag 'Add Pictures', class: 'btn btn-primary' %>
+  <% end %>
 <% end %>
 
 <div class='row'>

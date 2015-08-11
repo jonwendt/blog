@@ -1,4 +1,5 @@
 class MixtapesController < ApplicationController
+  before_filter :enforce_privileges, :only => [:new, :create, :edit, :update, :destroy]
   def index
     @mixtapes = Mixtape.all
   end

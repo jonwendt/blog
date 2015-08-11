@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def enforce_privileges
     if @is_admin == false
-      redirect_to url_for(:controller => params[:controller])
+      redirect_to url_for(:controller => params[:controller]), :alert => 'Please sign in.'
     end
   end
 end

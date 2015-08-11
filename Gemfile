@@ -6,7 +6,7 @@ gem 'rails', '4.1.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-#gem 'mysql2', group => :production
+gem 'mysql2', :group => :production
 gem 'devise'
 
 
@@ -27,7 +27,7 @@ gem "twitter-bootstrap-rails"
 gem 'protected_attributes'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'spring', group => :development
+gem 'spring', :group => :development
 gem 'mechanize'
 gem 'fastimage'
 

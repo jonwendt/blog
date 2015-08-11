@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_filter :enforce_privileges, :only => [:new, :create, :edit, :update, :destroy, :add_from_urls]
 
   def index
     @pictures = Picture.all
