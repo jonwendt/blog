@@ -28,19 +28,47 @@
   <div class="container">
 
     <ul class="nav nav-pills">
-      <%= nav_link("Home", root_path ) %>
+      <%= nav_link("Home", root_path) %>
       <%= nav_link("Blog", posts_path) %>
       <%= nav_link("Projects", projects_path) %>
       <%= nav_link("Mixtapes", mixtapes_path) %>
       <%= nav_link("Contact", contact_index_path) %>
     </ul>
 
-    <%= yield %>
 
-    <hr>
+    <!-- <div class="row"> -->
+      <!-- <div class="masthead"> -->
+        <!--
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <%= nav_link("Home", root_path ) %>
+                <%= nav_link("Blog", posts_url) %>
+                <%= nav_link("Projects", projects_url) %>
+                <%= nav_link("Mixtapes", mixtapes_url) %>
+                <%= nav_link("Contact", contact_index_url) %>
+                <%# if user_signed_in? %>
+                  <%#= nav_link("Sign Out", destroy_user_session_path) %>
+                <%# else %>
+                  <%#= nav_link("Sign In", new_user_session_path) %>
+                <%# end %>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+      <!-- </div> -->
 
-    <div class="footer">
-      <p>&copy; Jon Wendt <%= Date.today.year %></p>
+      <!-- <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p> -->
+      
+      <%= yield %>
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Jon Wendt <%= Date.today.year %></p>
+      </div>
     </div>
   </div> <!-- /container -->
 </body>

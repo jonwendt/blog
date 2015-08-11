@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @posts = @project.posts.select('title, preview, id, tags, project_id').order("id desc")
   end
 
   def edit

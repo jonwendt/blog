@@ -7,13 +7,13 @@
 <div class="row">
   <div class="col-md-3 sidebar"><%= render :partial => "sidebar" %></div>
   <div class="col-md-9">
-    <% @project.posts.select('title, preview, id, tags, project_id').each do |post| %>
+    <% @posts.each do |post| %>
       <h3 class='post-title'><%= post.title %></h3>
       <p class='post-content'><%= post.preview.html_safe %></p>
       <p><%= link_to "Read more &raquo;".html_safe, project_post_path(@project.id, post.id), :class => "btn btn-default" %></p>
       
-      <% if post != @project.posts.last %>
-        <hr><br>
+      <% if post != @posts.last %>
+        <hr>
       <% end %>
     <% end %>
   </div>

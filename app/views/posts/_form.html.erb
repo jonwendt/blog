@@ -17,13 +17,15 @@
 
     <p>Tags <%= f.text_field :tags %></p>
 
+    <p>Public <%= f.check_box :public %></p>
+
     <%= f.submit class: 'btn btn-primary', id: 'update-post' %>
   </div>
 
   <%= f.hidden_field :project_id, value: params[:project_id] if params[:project_id] %>
 <% end %>
 
-<%= link_to "Delete Post", post_path(@post), method: :delete, class: 'btn btn-danger' %>
+<%= link_to "Delete Post", post_path(@post), method: :delete, class: 'btn btn-danger' if @post.persisted? %>
 
 <script>
   var updatePositions = function() {

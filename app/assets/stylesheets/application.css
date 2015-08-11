@@ -127,6 +127,7 @@ ol.example li.placeholder:before {
 }
 .image-container .expandable {
   max-height: 400px;
+  margin: auto;
 }
 .image-container .expandable:hover {
   cursor: pointer;

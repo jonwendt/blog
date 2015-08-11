@@ -1,0 +1,22 @@
+<%= form_tag add_from_urls_pictures_path, method: :post do %>
+  <%= text_area_tag :urls, nil, placeholder: 'Imgur URLs separated by spaces' %>
+  <%= submit_tag 'Add Pictures', class: 'btn btn-primary' %>
+<% end %>
+
+<div class='row'>
+  <% @pictures.each do |picture| %>
+    <div class='col-md-4'><%= picture.id %><%= picture.build_thumbnail_html.html_safe %></div>
+  <% end %>
+</div>
+
+<script>
+  $('.expandable').click(function() {
+      if ($(this).css('max-height') == 'none') {
+            $(this).css('max-height', '400px');
+                  $(this).parents('.image-container').width($(this).width());
+                      } else {
+                            $(this).css('max-height', 'none');
+                                  $(this).parents('.image-container').width('');
+                                      }
+                                        });
+                                        </script>

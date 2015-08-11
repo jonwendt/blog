@@ -10,7 +10,7 @@
       <li><%= link_to "Videos", videos_project_path(@project.id) %></li>
     <% end %>
     <li class="nav-header">Posts</li>
-    <% @project.posts.each do |post| %>
+    <% @project.posts.order("id desc").each do |post| %>
       <li><%= sidebar_link(post) %></li>
     <% end %>
     
