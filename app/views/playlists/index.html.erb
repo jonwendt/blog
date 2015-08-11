@@ -1,0 +1,13 @@
+<%= render :partial => "partials/header", locals: { :text => "Playlists" } %>
+
+<div class="row">
+  <% @playlists.each do |playlist| %>
+    <div class="col-md-6">
+      <h3 class='post-title'><%= link_to title_with_explicit_label(playlist), playlist_path(playlist.id) %></h3>
+      <p><%= playlist.player_html.html_safe %></p>
+      <p><%= link_to "Read more &raquo;".html_safe, playlist_path(playlist.id), :class => "btn btn-default" %></p>
+      
+    </div>
+  <% end %>
+</div>
+<br>

@@ -1,8 +1,9 @@
-<%= form_for @mixtape do |f| %>
+<%= form_for @playlist do |f| %>
   <div class="row">
     <h2>Title</h2><p><%= f.text_field :title, class: 'form-control' %></p>
     <p>Html <%= f.text_area :player_html, class: 'form-control' %></p>
-    <p>Content <%= f.text_area :content, class: 'form-control' %></p>
+    <p>Download Link <%= f.text_area :download_link, class: 'form-control' %></p>
+    <p>Post Content <%= f.text_area :content, class: 'form-control' %></p>
     <p>Tags <%= f.text_field :tags, class: 'form-control' %></p>
     <%= f.submit class: 'btn btn-primary' %>
   </div>

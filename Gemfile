@@ -6,7 +6,7 @@ gem 'rails', '4.1.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'mysql2', :group => :production
+# gem 'mysql2', :group => :production
 gem 'devise'
 
 

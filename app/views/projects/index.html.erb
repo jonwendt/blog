@@ -1,4 +1,4 @@
-<% @projects.pluck(:project_type).uniq.each do |project_type| %>
+<% @projects.pluck(:project_type).uniq.each_with_index do |project_type, index| %>
   <%= render partial: "partials/header", locals: { text: project_type } %>
 
   <div class='row'>
@@ -11,6 +11,9 @@
       </div>
     <% end %>
   </div>
+  <% if index != @projects.pluck(:project_type).uniq.count - 1 %>
+    <hr>
+  <% end %>
 <% end %>
 
-<%= link_to 'New Project', new_project_path, class: 'btn btn-primary' %>
+<%= link_to 'New Project', new_project_path, class: 'btn btn-primary' if @is_admin %>

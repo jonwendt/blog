@@ -16,7 +16,7 @@ Blog::Application.routes.draw do
       get :videos
     end
   end
-  resources :mixtapes
+  resources :playlists
   resources :contact
   resources :pictures do
     collection do

@@ -1,36 +1,36 @@
 <div class="jumbotron masthead">
   <h1>JonWendt.com</h1>
-  <p class="lead">An aggregation of memories, musings, and projects from Jonathan Patrick Wendt</p>
+  <p class="lead">An aggregation of memories, musings, projects, and playlists from Jonathan&nbsp;Patrick&nbsp;Wendt</p>
 </div>
 
 <% unless @blog_posts.blank? %>
-<hr>
+  <hr>
 
-<h2><%= link_to "Blog", posts_path %></h2>
+  <h2><%= link_to "Blog", posts_path %></h2>
 
-<div class="row">
-  <% @blog_posts.each do |post| %>
-    <div class="col-md-4">
-      <h3 class="post-title"><%= post.title %></h3>
-      <p class="post-content"><%= post.preview.html_safe %></p>
-      <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn btn-default" %></p>
-    </div>
-  <% end %>
-</div>
+  <div class="row">
+    <% @blog_posts.each do |post| %>
+      <div class="col-md-4">
+        <h3 class="post-title"><%= post.title %></h3>
+        <p class="post-content"><%= post.preview.html_safe %></p>
+        <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn btn-default" %></p>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
 <% unless @project_posts.blank? %>
-<hr>
+  <hr>
 
-<h2><%= link_to "Projects", projects_path %></h2>
+  <h2><%= link_to "Projects", projects_path %></h2>
 
-<div class="row">
-  <% @project_posts.each do |post| %>
-    <div class="col-md-4">
-      <h3 class="post-title"><%= post.title %></h3>
-      <p class="post-content"><%= post.preview.html_safe %></p>
-      <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn btn-default" %></p>
-    </div>
-  <% end %>
-</div>
+  <div class="row">
+    <% @project_posts.each do |post| %>
+      <div class="col-md-4">
+        <h3 class="post-title"><%= post.title %></h3>
+        <p class="post-content"><%= post.preview.html_safe %></p>
+        <p><%= link_to "Read more &raquo;".html_safe, post_path(post.id), :class => "btn btn-default" %></p>
+      </div>
+    <% end %>
+  </div>
 <% end %>

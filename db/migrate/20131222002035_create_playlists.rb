@@ -1,6 +1,6 @@
-class CreateMixtapes < ActiveRecord::Migration
+class CreatePlaylists < ActiveRecord::Migration
   def change
-    create_table :mixtapes do |t|
+    create_table :playlists do |t|
       t.text :player_html
       t.text :content
       t.string :title

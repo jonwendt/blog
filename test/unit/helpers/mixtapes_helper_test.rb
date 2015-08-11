@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class MixtapeHelperTest < ActionView::TestCase
+class PlaylistHelperTest < ActionView::TestCase
 end
