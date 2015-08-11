@@ -24,3 +24,4 @@
 # Ignore application configuration
 /config/application.yml
 
+/app/mailers/my_mailer.rb

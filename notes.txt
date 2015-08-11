@@ -1,0 +1,36 @@
+Implement headings and code blocks in Post, maybe as Text type, just adds formatting.
+
+In add_picture_fields, user should be able to choose from existing pictures, or use from URL, which would ask for an imgur link and use add_from_urls method
+
+Write blog posts
+
+"Canvas mode" which will make posts full-screen, with really nice CSS as you scroll down
+
+Pagination on index page of posts
+
+Better way to display and track images. Have a place to upload them and caption them, then reference from a post. Referencing will draw a reasonably sized thumbnail, which will expand on click. Then have images page with a collection of the images. Try to have some juicy js there.
+Example workflow: Move all images to be used in post into assets/images/import. Go to a page reserved for admin user and click import (can either import from folder or from imgur album). This create new image records for each with the file name associated. Each will have a text box to enter a caption, with a save button at the bottom that will save them all. Reference image using [PICTURE(id)]. In after_save of a post, replace [PICTURE(id)] with html showing the scaled picture and caption, and adding a listener so when the picture is clicked you get the full resolution.
+class="image". Then in posts#show have jQuery
+
+New topbar
+
+Responsiveness
+
+Searching (tags)
+
+Separate blog posts from update posts in projects for calls in posts_controller
+
+Fix problem with image-container setting width to child .img's width before the image is loaded, making it wider than necessary
+
+Add comments to posts and updates. A User can only post one comment every 30 seconds. Must have an account.
+
+Get into the habbit of using new hash syntax.
+
+Tell Jarvis what your usual bedtime is so he can time events to that.
+
+======== Posts will change content from being just one chunk of html to being contents: a series of text_blobs, pictures, videos, other widgets as necessary. Then the create and edit pages can be much nicer and more useful. There will be options to add text_blobs, pictures, etc, where they will all appear in an ordered queue. The user can drag each content to rearrange order. For adding picture, can choose existing, which will be a grid of thumbnails that are clickable, or create from imgur, which will take a link to an imgur uploaded picture, gathering information about it and saving to a Picture record. When Post is saved, build_html will be called.
+
+Change Project posts to be a nested route and have own views
+
+== Making sortable post content ==
+1st solution - Make a Content object, which just has_one :object. Object will be TextEntry, Picture, Video, etc. Then the new post form will be simple form_for @post.contents, that will be reloaded with jQuery each time an Add [SOMETHING] button is pressed.
