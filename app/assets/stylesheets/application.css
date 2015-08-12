@@ -110,11 +110,11 @@ ol.example li.placeholder:before {
 .image-container {
   text-align: center;
   padding: 10px;
-  background-color: #2b2b2b;
+  background-color: #eee;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  color: #aaa;
+  color: #555;
 
   word-wrap: break-word;
   word-break: break-word;
@@ -215,4 +215,28 @@ ol.example li.placeholder:before {
 }
 .post-content > p {
   font-size: 16px;
+}
+
+.cover_art {
+  padding: 15px;
+}
+
+.playlist {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  /*background-color: #eee;*/
+}
+
+.play-button {
+  opacity: 0.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  display: none;
+}
+
+.no-padding {
+  padding: 0px;
 }

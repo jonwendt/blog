@@ -13,17 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150508122440) do
 
-  create_table "mixtapes", force: true do |t|
-    t.text     "player_html"
-    t.text     "content"
-    t.string   "title"
-    t.string   "download_link"
-    t.string   "tags"
-    t.boolean  "explicit",      default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "pictures", force: true do |t|
     t.integer  "parent_id"
     t.string   "parent_type"
@@ -31,6 +20,17 @@ ActiveRecord::Schema.define(version: 20150508122440) do
     t.text     "caption"
     t.integer  "width"
     t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "playlists", force: true do |t|
+    t.text     "player_html"
+    t.text     "content"
+    t.string   "title"
+    t.string   "download_link"
+    t.string   "tags"
+    t.boolean  "explicit",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

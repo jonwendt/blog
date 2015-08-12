@@ -9,7 +9,7 @@ class PlaylistsController < ApplicationController
   end
 
   def new
-    @playlist = Playlist.find(params[:id])
+    @playlist = Playlist.new
   end
 
   def edit

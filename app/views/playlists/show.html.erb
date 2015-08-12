@@ -6,8 +6,8 @@
 <hr>
 
 <div class="row">
-  <div class="col-md-5" style="max-width: 300px;"><%= @playlist.player_html.html_safe %></div>
-  <div class="col-md-7">
+  <div class="col-md-6"><%= @playlist.player_html.html_safe %></div>
+  <div class="col-md-6">
     <%= @playlist.content.html_safe %>
     <br><br>
     <p>Tags: <%= @playlist.tags %></p>
@@ -17,3 +17,11 @@
 <br>
 
 <%= link_to "Edit Playlist", edit_playlist_path(@playlist), :class => "btn btn-primary" if @is_admin %>
+
+<script>
+  $('.playlist').mouseenter(function() {
+    $(this).find('.play-button').fadeIn(200);
+  }).mouseleave(function() {
+    $(this).find('.play-button').fadeOut(200);
+  });
+</script>
