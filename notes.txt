@@ -34,3 +34,15 @@ Change Project posts to be a nested route and have own views
 
 == Making sortable post content ==
 1st solution - Make a Content object, which just has_one :object. Object will be TextEntry, Picture, Video, etc. Then the new post form will be simple form_for @post.contents, that will be reloaded with jQuery each time an Add [SOMETHING] button is pressed.
+
+
+Playlist html. TODO - write script to build this from an instantfm link
+<div class="playlist col-xs-12 no-padding">
+  <a href="http://instant.fm/p/c8t" target='blank' class='col-xs-12 no-padding'>
+    <img class="cover_art col-xs-6" src="http://userserve-ak.last.fm/serve/300x300/46536731.png"/>
+    <img class="cover_art two col-xs-6" src="http://userserve-ak.last.fm/serve/300x300/104636845.png"/>
+    <img class="cover_art three col-xs-6" src="http://userserve-ak.last.fm/serve/300x300/91520107.png"/>
+    <img class="cover_art four col-xs-6" src="http://userserve-ak.last.fm/serve/300x300/75177734.jpg"/>
+    <img src='http://cdn1.iconfinder.com/data/icons/iconslandplayer/PNG/64x64/CircleBlue/Play1Pressed.png' class='play-button'/>
+  </a>
+</div>
