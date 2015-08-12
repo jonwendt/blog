@@ -6,11 +6,34 @@
 
 <div class="row">
   <div class="col-md-6 post-content">
-    <p><b>Email</b> - <%= mail_to "jpwendt@asu.edu" %></p>
-    <p><b>Résumé</b> - <%= link_to "Here", "https://www.dropbox.com/s/42pfsgxldgh5scm/Resume.pdf?dl=0" %></p>
+    <!-- <a class='btn btn-default btn-lg' href='mailto:jpwendt@asu.edu' style="margin: 0 auto;">
+      <i class="fa fa-envelope-o fa-2x"></i>
+      <div style='display: inline;'><b>Email</b> jpwendt@asu.edu</div>
+    </a>
+
+    <br><br>
+
+    <a class='btn btn-default btn-lg' href='https://www.dropbox.com/s/42pfsgxldgh5scm/Resume.pdf?dl=0' style="margin: 0 auto;">
+      <i class="fa fa-file-text-o fa-2x"></i>
+      <b>Résumé</b>
+    </a>
+
+    <br><br> -->
+
+
+    <div class="list-group" style='font-size: 18px'>
+      <a class="list-group-item" href="mailto:jpwendt@asu.edu">
+        <i class="fa fa-envelope-o fa-fw fa-lg"></i>&nbsp; Email
+      </a>
+      <a class="list-group-item" href="https://www.dropbox.com/s/42pfsgxldgh5scm/Resume.pdf?dl=0" target='blank'>
+        <i class="fa fa-file-text-o fa-fw fa-lg"></i>&nbsp; Résumé
+      </a>
+    </div>
   </div>
 
-  <div class="col-md-6 image-container">
+  <div class="col-md-6">
+    <div class='image-container'>
     <%= image_tag("http://i.imgur.com/lpDTCb4.jpg", class: 'img-responsive') %>
+    </div>
   </div>
 </div>
