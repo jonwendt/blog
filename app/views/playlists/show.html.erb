@@ -6,15 +6,13 @@
 <hr>
 
 <div class="row">
-  <div class="col-md-6 col-xs-12"><%= @playlist.player_html.html_safe %></div>
+  <div class="col-md-6 col-xs-12" style='margin-bottom: 10px;'><%= @playlist.player_html.html_safe %></div>
   <div class="col-md-6 col-xs-12">
     <%= @playlist.content.html_safe %>
     <br><br>
     <p>Tags: <%= @playlist.tags %></p>
   </div>
 </div>
-
-<br>
 
 <%= link_to "Edit Playlist", edit_playlist_path(@playlist), :class => "btn btn-primary" if @is_admin %>
 

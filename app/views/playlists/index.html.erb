@@ -2,15 +2,13 @@
 
 <div class="row">
   <% @playlists.each do |playlist| %>
-    <div class="col-md-6 col-xs-12">
+    <div class="col-md-6 col-xs-12" style='margin-bottom: 10px;'>
       <h3 class='post-title'><%= link_to title_with_explicit_label(playlist), playlist_path(playlist.id) %></h3>
       <%= playlist.player_html.html_safe %>
       <%= link_to "Read more &raquo;".html_safe, playlist_path(playlist.id), class: "btn btn-default", style: 'margin-top: 15px' %>
     </div>
   <% end %>
 </div>
-
-<br>
 
 <%= link_to 'New Playlist', new_playlist_path, class: 'btn btn-primary' if @is_admin %>
 

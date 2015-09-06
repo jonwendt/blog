@@ -1,0 +1,13 @@
+<%= @picture.build_thumbnail_html.html_safe %>
+<br><br>
+<%= form_for @picture do |f| %>
+  <%= f.label :path %>
+  <br>
+  <%= f.text_field :path %>
+  <br><br>
+  <%= f.label :caption %>
+  <br>
+  <%= f.text_area :caption, style: 'height: 100px; width: 300px;' %>
+  <br><br>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
